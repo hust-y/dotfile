@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 #Add alias command for manage Recycle.Bin
-alias recycle="/mnt/c/'Recycle.Bin'"
+alias recycle="cd /mnt/c/'\$Recycle.Bin'"
 
 #Add alias command for some cmd
 alias tx="tmux"
