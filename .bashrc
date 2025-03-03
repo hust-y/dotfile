@@ -116,11 +116,28 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#Add alias command for manage Recycle.Bin
+#Make the bash in tmux without typing
+alias tm=tmux
+
+#Go to the special directory when in special directory
+destination="lab03"
+starting_point="cs61a"
+now_directory=$(basename "$PWD")
+
+if [[ "$starting_point" == "$now_directory" ]]; then
+	cd $destination
+fi
+
+unset destination
+unset starting_point
+unset now_derictory
+
+#Add alias command for move in windows or computers
 alias recycle="cd /mnt/c/'\$Recycle.Bin'"
+alias "cd-c"="cd /mnt/c"
+alias "cd-d"="cd /mnt/d"
 
 #Add alias command for some cmd
-alias tx="tmux"
 alias bs="bash"
 alias vb="vim ~/.bashrc"
 alias as=alias
@@ -138,11 +155,29 @@ alias cod="cd /mnt/d/code"
 alias p="python3"
 alias ok="python3 ok -q"
 alias pi="python3 -i"
+alias get="source /mnt/d/code/shell/get.sh"
+
+#Add alias for coding mode
+iscoding=1
+if [ $iscoding -eq 1 ]; then
+	from="/mnt/c/Users/32664/Downloads/"
+	to="/mnt/d/code/py-code/cs61a/"
+	file="hw04-2cf46d1f8dc71ad7d8bacb4815de3044.zip"
+	vimfile="/mnt/d/code/shell/get.sh"
+	
+	alias vimit="vim $vimfile" 
+	alias cdfrom="cd $from"
+	alias cdto="cd $to"
+	alias mvto="mv $from$file $to"
+	alias mvfrom="mv $to$file $from"
+	alias show="find . -maxdepth 1 -name $file"
+fi
 
 #Add alias command about git and dotfile control
 alias dot="cd ~/.dotfile"
 alias ga="git add"
 alias gc="git commit"
+alias gp="git push origin main"
 
 #Add a help funtion
 alias hp="cat ~/.bashrc | grep alias | grep = | grep"
