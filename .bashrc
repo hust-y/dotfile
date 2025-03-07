@@ -120,7 +120,7 @@ fi
 alias tm=tmux
 
 #Go to the special directory when in special directory
-destination="lab03"
+destination='hw04'
 starting_point="cs61a"
 now_directory=$(basename "$PWD")
 
@@ -136,6 +136,7 @@ unset now_derictory
 alias recycle="cd /mnt/c/'\$Recycle.Bin'"
 alias "cd-c"="cd /mnt/c"
 alias "cd-d"="cd /mnt/d"
+alias dd="cd /mnt/c/Users/32664/Downloads/"
 
 #Add alias command for some cmd
 alias bs="bash"
@@ -147,37 +148,25 @@ alias md="mkdir"
 alias tch=touch
 
 #Alias about showing in cmd of Linux
-alias l="ls"
-alias la="ls -a"
+alias fn="find . -maxdepth 1 -name"
 
 #Editing coding files
 alias cod="cd /mnt/d/code"
+alias cdc="cd /mnt/d/code/c-code"
+alias cdp="cd /mnt/d/code/py-code"
+alias cdmat="cd /mnt/d/code/matlab-code"
+alias cdsh="cd /mnt/d/code/shell"
+alias dot="cd ~/.dotfile"
+
 alias p="python3"
-alias ok="python3 ok -q"
 alias pi="python3 -i"
 alias get="source /mnt/d/code/shell/get.sh"
 
-#Add alias for coding mode
-iscoding=1
-if [ $iscoding -eq 1 ]; then
-	from="/mnt/c/Users/32664/Downloads/"
-	to="/mnt/d/code/py-code/cs61a/"
-	file="hw04-2cf46d1f8dc71ad7d8bacb4815de3044.zip"
-	vimfile="/mnt/d/code/shell/get.sh"
-	
-	alias vimit="vim $vimfile" 
-	alias cdfrom="cd $from"
-	alias cdto="cd $to"
-	alias mvto="mv $from$file $to"
-	alias mvfrom="mv $to$file $from"
-	alias show="find . -maxdepth 1 -name $file"
-fi
-
-#Add alias command about git and dotfile control
-alias dot="cd ~/.dotfile"
+#Add alias command about git 
 alias ga="git add"
 alias gc="git commit"
 alias gp="git push origin main"
+alias gla="git log --graph --oneline --all"
 
 #Add a help funtion
 alias hp="cat ~/.bashrc | grep alias | grep = | grep"
